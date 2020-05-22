@@ -28,6 +28,7 @@ button{
   margin: 20;
   border-radius:4px;
   border-radius: 5px;
+  text-transform:uppercase;
   text-align: center;
 }
 
