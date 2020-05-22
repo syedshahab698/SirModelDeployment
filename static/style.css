@@ -1,7 +1,7 @@
 html { 
     width: 100%; 
     height:100%;
-  background: url('Pandemic.jpg');
+  background: url('Book.jpg');
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -11,8 +11,8 @@ html {
 .login { 
 	position: absolute;
 	
-	top: 25%;
-	left: 30%;
+	top: 50%;
+	left: 15%;
 	padding:5px;
 	font-size: 14px;
 	border-radius:4px;
@@ -37,5 +37,5 @@ label {font-size: 24px; color: black; text-shadow: 0 0 10px rgba(0,0,0,0.3); let
 
 
 
-.login h1 { font-size: 50px; color: black; text-shadow: 0 0 10px rgba(0,0,0,0.3); letter-spacing:1px; text-align:center; }
+h1 { font-size: 50px; color: black; text-shadow: 0 0 10px rgba(0,0,0,0.3); letter-spacing:1px; text-align:center; }
 
