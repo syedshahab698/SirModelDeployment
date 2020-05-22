@@ -9,9 +9,9 @@
     <h1 style="text-align: center;">SIR Model For Pandemic</h1>
 	<form action="{{ url_for('predict')}}" method="post">
 		<label style="color:black;" for="beta">Beta:</label>
-		<input  type="text" name="beta" value="{{ request.form['beta']}}" /><br>
+		<input  type="text" name="beta" value="{{request.form['beta'] if request.form['beta'] else '0.3'}}" /><br>
 		<label style="color:black;" for="gamma">Gamma:</label>
-		<input type="text" name="gamma" value="{{ request.form['gamma']}}" />
+		<input type="text" name="gamma" value="{{request.form['gamma'] if request.form['gamma'] else '0.1'}}" />
 		<button type="submit" name="submit">Submit</button>
 	</form>
 
