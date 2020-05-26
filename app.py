@@ -34,7 +34,7 @@ def predict():
     
     OutputDict = {'p1':None,'p2':None,'time':time,'p3':None}
     try:
-        DecFactor = int(request.form['DecFactor'])
+        DecFactor = float(request.form['DecFactor'])
         lkdown = int(request.form['lkdown'])
     except :
         
