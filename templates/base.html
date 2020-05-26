@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="../static/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
+    <title>SIR MODEL</title>
+  </head>
+   <body>
+    <div class="jumbotron text-center">
+      <h1 >The SIR Model</h1>
+      <p>The SIR model is one of the simplest compartmental models in epidemiology!</p> 
+    </div>
+    <form action="{{ url_for('predict')}}" method="post">
+
+    <div class="container-xl">
+      <div class="row">
+         <div class="col-md-6 ">
+          <h3>Beta: The Infection Rate</h3>
+          <p>The parameter controlling how often a susceptible-infected contact results in a new infection.</p>
+          </div>
+       <div class="col-md-6">
+          <h3>Gamma: The Recovery Rate</h3>
+          <p>The rate an infected recovers and moves into the resistant phase.</p>
+          </div>
+    </div>
+     <div class="row">
+         <div class="col-md-12">
+           <!--  <p style="text-align:center">SIR fixed gamma and varying beta plot</p> -->
+             <img  src="{{url_for('static', filename='SIR_Gif.gif')}}"
+       style="width:900px; height:400px " alt="" />
+           </div>
+    </div>
+    <br>
+    <form action="{{ url_for('predict')}}" method="post">
+    <h2>SIR Model Plot</h2><br>
+     <div class="row" id="row1">
+         <div class="col-md-4 ">
+             <div>
+             <br><br><br><br>
+             <label for="beta">Beta Rate:</label>
+              <input type="range" name="beta" min="0.1" max="0.9" step="0.1" 
+              value = "{{request.form['beta'] if request.form['beta'] else '0.3'}}" 
+              onchange="$('~ output', this).val(value)" 
+              oninput="$('~ output', this).val(value)" >
+              <output>{{request.form['beta'] if request.form['beta'] else 0.3}}</output>
+             </div>
+              <div>
+              <label for="gamma">Gamma Rate:</label>
+               <input type="range" name="gamma" min="0.1" max="0.9" step="0.1"
+               value = "{{request.form['gamma'] if request.form['gamma'] else '0.1'}}"
+              onchange="$('~ output', this).val(value)" 
+              oninput="$('~ output', this).val(value)" >
+              <output>{{request.form['gamma'] if request.form['gamma'] else 0.1}}</output>
+              </div><br>
+             <button id="sub1" onclick="changep1()" type="submit" class="btn btn-info" style="width: 100px;" >SUBMIT</button>
+       </form><br><br>
+           </div>
+        <div class="col-md-8 ">
+           {% block plot1%}{%endblock%}
+        </div>
+    </div>
+    <br>
+    <form action="{{ url_for('predict')}}" method="post">
+    <h2>SIR Model plot with social distancing</h2><br>
+     <div id="row2" class="row" >
+         
+         <div class="col-md-4 ">
+             <div>
+             
+             <label for="beta">Beta Rate:</label>
+              <input type="range" name="beta" min="0.1" max="0.9" step="0.1" 
+              value = "{{request.form['beta'] if request.form['beta'] else '0.3'}}" 
+              onchange="$('~ output', this).val(value)" 
+              oninput="$('~ output', this).val(value)" >
+              <output>{{request.form['beta'] if request.form['beta'] else 0.3}}</output>
+             </div>
+              <div>
+              <label for="gamma">Gamma Rate:</label>
+               <input type="range" name="gamma" min="0.1" max="0.9" step="0.1"
+               value = "{{request.form['gamma'] if request.form['gamma'] else '0.1'}}"
+              onchange="$('~ output', this).val(value)" 
+              oninput="$('~ output', this).val(value)" >
+              <output>{{request.form['gamma'] if request.form['gamma'] else 0.1}}</output>
+              </div>
+              <div>
+               <label for="lkdown">Lockdown Entry(Days From Beginning) :</label><br>
+               <input type="range" name="lkdown" min="10" max="160" step="10"
+               value = "{{request.form['lkdown'] if request.form['lkdown'] else '40'}}"
+              onchange="$('~ output', this).val(value)" 
+              oninput="$('~ output', this).val(value)" >
+              <output>{{request.form['lkdown'] if request.form['lkdown'] else 40}}</output>
+             </div>
+             <label for="DecFactor">Factor by which Beta decreases in lockdown: </label>
+              <input type="number" style="width:40px;" name="DecFactor" value="{{request.form['DecFactor'] if request.form['DecFactor'] else '2'}}" />
+              <br>
+              <br>
+             
+             <button id="sub2" type="submit" class="btn btn-info" style="width: 100px;" >SUBMIT</button>
+       </form><br><br>
+           </div>
+        <div class="col-md-8 ">
+           {% block plot2%}{%endblock%}
+        </div>
+    </div>
+    <br>
+    <form action="{{ url_for('predict')}}" method="post">
+    <h2>Infection rate plot with social distancing & easing the norms</h2><br>
+     <div class="row" id="row3" >
+         
+         <div class="col-md-4 ">
+             <div>
+             
+             <label for="beta">Beta Rate:</label>
+              <input type="range" name="beta" min="0.1" max="0.9" step="0.1" 
+              value = "{{request.form['beta'] if request.form['beta'] else '0.3'}}" 
+              onchange="$('~ output', this).val(value)" 
+              oninput="$('~ output', this).val(value)" >
+              <output>{{request.form['beta'] if request.form['beta'] else 0.3}}</output>
+             </div>
+              <div>
+              <label for="gamma">Gamma Rate:</label>
+               <input type="range" name="gamma" min="0.1" max="0.9" step="0.1"
+               value = "{{request.form['gamma'] if request.form['gamma'] else '0.1'}}"
+              onchange="$('~ output', this).val(value)" 
+              oninput="$('~ output', this).val(value)" >
+              <output>{{request.form['gamma'] if request.form['gamma'] else 0.1}}</output>
+              </div>
+              <div>
+               <label for="lkdown">Lockdown Entry(Days From Beginning) :</label><br>
+               <input type="range" name="lkdown" min="10" max="160" step="10"
+               value = "{{request.form['lkdown'] if request.form['lkdown'] else '40'}}"
+              onchange="$('~ output', this).val(value)" 
+              oninput="$('~ output', this).val(value)" >
+              <output>{{request.form['lkdown'] if request.form['lkdown'] else 40}}</output>
+             </div>
+             <label for="DecFactor">Factor by which Beta decreases in lockdown: </label>
+              <input type="number" style="width:40px;" name="DecFactor" value="{{request.form['DecFactor'] if request.form['DecFactor'] else '2'}}" />
+              <br>
+               <div>
+              <label for="lkdownopen">Lockdown Period:</label><br>
+               <input type="range" name="lkdownopen" min="10" max="160" step="10"
+               value = "{{request.form['lkdownopen'] if request.form['lkdownopen'] else '30'}}"
+              onchange="$('~ output', this).val(value)" 
+              oninput="$('~ output', this).val(value)" >
+              <output>{{request.form['lkdownopen'] if request.form['lkdownopen'] else 30}}</output>
+               </div>
+             
+             <button id="sub3" type="submit" class="btn btn-info" style="width: 100px;" >SUBMIT</button>
+       </form><br><br>
+           </div>
+        <div class="col-md-8 ">
+           {% block plot3%}{%endblock%}
+        </div>
+    </div>
+    
+   
+    
+
