@@ -2,7 +2,7 @@
 import matplotlib.pyplot as plt
 import matplotlib.pylab as pylab
 params = {'legend.fontsize': 'x-large',
-          'figure.figsize': (10, 6),
+          'figure.figsize': (10, 5),
          'axes.labelsize': 'x-large',
          'axes.titlesize':'x-large',
          'xtick.labelsize':'x-large',
