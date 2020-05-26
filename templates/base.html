@@ -64,7 +64,12 @@
        </form><br><br>
            </div>
         <div class="col-md-8 ">
-           {% block plot1%}{%endblock%}
+           {% block plot1%}
+          <p style="text-align:center;font-size:20px;">Peak- 30.03% Simultaneously Infected 
+            <p style="text-align:center; font-size:20px;"> Cumulative Infection 94.04%
+           <img id="p1" src="{{url_for('static', filename='img/one182408.jpg')}}"
+     style="width:100%; height:auto; " class="rounded  img-fluid" alt="" /> 
+          {%endblock%}
         </div>
     </div>
     <br>
@@ -107,7 +112,12 @@
        </form><br><br>
            </div>
         <div class="col-md-8 ">
-           {% block plot2%}{%endblock%}
+           {% block plot2%}
+          <p style="text-align:center;font-size:20px;">Peak- 16.37% Simultaneously Infected 
+            <p style="text-align:center; font-size:20px;"> Cumulative Infection 69.69%
+           <img id="p1" src="{{url_for('static', filename='img/two182408.jpg')}}"
+     style="width:100%; height:auto; " class="rounded  img-fluid" alt="" /> 
+          {%endblock%}
         </div>
     </div>
     <br>
@@ -157,7 +167,13 @@
        </form><br><br>
            </div>
         <div class="col-md-8 ">
-           {% block plot3%}{%endblock%}
+           {% block plot3%}
+          <p style="text-align:center;font-size:20px;">Infection rate comparison in various scenarios
+           <p style="text-align:center;font-size:20px;">Peak- 16.37% Simultaneously Infected 
+            <p style="text-align:center; font-size:20px;"> Cumulative Infection 85.78%
+            <img id="p1" src="{{url_for('static', filename='img/three182408.jpg')}}"
+     style="width:100%; height:auto; " class="rounded  img-fluid" alt="" /> 
+          {%endblock%}
         </div>
     </div>
     
