@@ -6,7 +6,7 @@
     <p style="text-align:center;">Peak- {{InfoDict['p1'][1]}}% Simultaneously Infected 
     <p style="text-align:center;"> Cumulative Infection {{InfoDict['p1'][2]}}%
     <img id="p1" src="{{url_for('static', filename='img/one'+InfoDict['time']+'.png')}}"
-     style="width:600px; height:300px " class="rounded  img-fluid" alt="" /> 
+     style="width:100%; height:auto; " class="rounded  img-fluid" alt="" /> 
     </div>
      
 {% endblock %}
@@ -16,7 +16,7 @@
     <p style="text-align:center;">Peak- {{InfoDict['p2'][1]}}% Simultaneously Infected 
     <p style="text-align:center;"> Cumulative Infection {{InfoDict['p2'][2]}}%
     <img id="p2" src="{{url_for('static', filename='img/two'+InfoDict['time']+'.png')}}"
-     style="width:600px; height:300px " class="rounded  img-fluid"  alt="" />
+     style="width:100%; height:auto; " class="rounded  img-fluid"  alt="" />
 </div>
 {% endblock %}
 
@@ -26,7 +26,7 @@
     <p style="text-align:center;">Peak- {{InfoDict['p3'][0]}}% Simultaneously Infected 
     <p style="text-align:center;">Cumulative Infection {{InfoDict['p3'][1]}}%
     <img id="p3" src="{{url_for('static', filename='img/three'+InfoDict['time']+'.png')}}"
-     style="width:600px; height:300px "  class="rounded  img-fluid" alt="" />
+     style="width:100%; height:auto; "  class="rounded  img-fluid" alt="" />
      </div>
 <!-- with R0: {{ InfoDict['R0']}}-->
 {% endblock %}
