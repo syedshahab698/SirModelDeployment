@@ -93,7 +93,7 @@ def GetPlot(t,S,I,R,time,plot,P2=False,TChng=0,P3=False,TChng1=0):
         plt.axvline(TChng1,linestyle='--',color='green')
     fig = plt.gcf()
     # plt.title('R0: {}'.format(round(R0,2)))
-    plt.savefig('static/img/'+plot+time+'.jpg',bbox_inches='tight')
+    plt.savefig('static/img/'+plot+time+'.png',bbox_inches='tight')
     return 
 
 def Plot1(beta,gamma,time):
@@ -254,7 +254,7 @@ def Plot3(beta2,gamma2,Tchange1,Tchange2,time,DecFactor):
     plt.axvline(t1[-1],linestyle='--',color='red')
     plt.axvline(t2[-1],linestyle='--',color='green')
     # plt.title('Infection rate comparison in various scenarios with R0: {}'.format(round(R0,2)))
-    plt.savefig('static/img/three'+time+'.jpg',bbox_inches='tight')
+    plt.savefig('static/img/three'+time+'.png',bbox_inches='tight')
 #    S= np.concatenate((S1,S2[1:],S3[1:]),axis=0)
 #    I= np.concatenate((I1,I2[1:],I3[1:]),axis=0)
 #    R= np.concatenate((R1,R2[1:],R3[1:]),axis=0)
