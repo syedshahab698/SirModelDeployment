@@ -37,14 +37,19 @@ def predict():
         DecFactor = int(request.form['DecFactor'])
         lkdown = int(request.form['lkdown'])
     except :
+        time = datetime.now().strftime("%H%M%S")
+        OutputDict["time"]=time
         plot1Info = Plot1(beta,gamma,time)
         OutputDict['p1'] = plot1Info
-        # OutputDict = {"p1":plot1Info,"time":time}
+        time = datetime.now().strftime("%H%M%S")
+        
         return render_template("predict.html",InfoDict = OutputDict)
     try:
         lkdownopen = int(request.form['lkdownopen'])
         lkdownopen = lkdown+lkdownopen
     except:
+        time = datetime.now().strftime("%H%M%S")
+        OutputDict["time"]=time
         plot1Info = Plot1(beta,gamma,time)
         OutputDict['p1'] = plot1Info
         beta2 = beta/DecFactor
@@ -52,7 +57,8 @@ def predict():
         OutputDict['p2'] = plot2Info
         # OutputDict = {"p2":plot2Info,"time":time}
         return render_template("predict.html",InfoDict = OutputDict)
-    
+    time = datetime.now().strftime("%H%M%S")
+    OutputDict["time"]=time
     beta2 = beta/DecFactor
     plot1Info = Plot1(beta,gamma,time)
     OutputDict['p1'] = plot1Info
