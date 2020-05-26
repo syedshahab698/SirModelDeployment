@@ -3,8 +3,8 @@
 
 {% block plot1 %} 
    <div  >
-    <p style="text-align:center;">Peak- {{InfoDict['p1'][1]}}% Simultaneously Infected 
-    <p style="text-align:center;"> Cumulative Infection {{InfoDict['p1'][2]}}%
+    <p style="text-align:center;font-size:20px;">Peak- {{InfoDict['p1'][1]}}% Simultaneously Infected 
+    <p style="text-align:center;font-size:20px;"> Cumulative Infection {{InfoDict['p1'][2]}}%
     <img id="p1" src="{{url_for('static', filename='img/one'+InfoDict['time']+'.png')}}"
      style="width:100%; height:auto; " class="rounded  img-fluid" alt="" /> 
     </div>
@@ -13,8 +13,8 @@
 
 {% block plot2 %} 
      <div  > 
-    <p style="text-align:center;">Peak- {{InfoDict['p2'][1]}}% Simultaneously Infected 
-    <p style="text-align:center;"> Cumulative Infection {{InfoDict['p2'][2]}}%
+    <p style="text-align:center;font-size:20px;">Peak- {{InfoDict['p2'][1]}}% Simultaneously Infected 
+    <p style="text-align:center;font-size:20px;"> Cumulative Infection {{InfoDict['p2'][2]}}%
     <img id="p2" src="{{url_for('static', filename='img/two'+InfoDict['time']+'.png')}}"
      style="width:100%; height:auto; " class="rounded  img-fluid"  alt="" />
 </div>
@@ -22,9 +22,9 @@
 
 {% block plot3 %}  
      <div  >
-    <p style="text-align:center;">Infection rate comparison in various scenarios
-    <p style="text-align:center;">Peak- {{InfoDict['p3'][0]}}% Simultaneously Infected 
-    <p style="text-align:center;">Cumulative Infection {{InfoDict['p3'][1]}}%
+    <p style="text-align:center;font-size:20px;">Infection rate comparison in various scenarios
+    <p style="text-align:center;font-size:20px;">Peak- {{InfoDict['p3'][0]}}% Simultaneously Infected 
+    <p style="text-align:center;font-size:20px;">Cumulative Infection {{InfoDict['p3'][1]}}%
     <img id="p3" src="{{url_for('static', filename='img/three'+InfoDict['time']+'.png')}}"
      style="width:100%; height:auto; "  class="rounded  img-fluid" alt="" />
      </div>
