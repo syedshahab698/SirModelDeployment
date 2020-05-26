@@ -1,9 +1,4 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Tue May 19 13:41:35 2020
 
-@author: ajaya
-"""
 import matplotlib.pyplot as plt
 import matplotlib.pylab as pylab
 params = {'legend.fontsize': 'x-large',
@@ -14,13 +9,11 @@ params = {'legend.fontsize': 'x-large',
          'ytick.labelsize':'x-large'}
 pylab.rcParams.update(params)
 plt.style.use('ggplot')
-import os
-os.chdir(r'C:\Users\Admin\Desktop\SIRmodel2')
+
 # from IPython.display import display
 # import ipywidgets as widgets
 import pandas as pd
 # from PIL import Image
-from ipywidgets import Image
 from datetime import datetime
 
 
